@@ -1,22 +1,21 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
+import logo from './GithubFinderLogoWhite.png'
 
 export class NavBar extends Component {
   static defaultProps = {
-    title: ' Github Finder',
-    icon: 'fab fa-github'
+    title: ' Github Finder'
   }
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired
   }
 
   render() {
     return (
       <nav className='navbar bg-primary'>
         <h1>
-          <i className={this.props.icon}></i>
+          <img src={logo} alt="Logo" style={{height: "20px", width: "auto"}} />
           {this.props.title}
         </h1>
       </nav>
