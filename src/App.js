@@ -3,6 +3,7 @@ import "./App.css"
 import NavBar from "./components/layout/NavBar"
 import Users from "./components/users/Users"
 import axios from "axios"
+import PropTypes from 'prop-types';
 
 class App extends Component {
   state = {
@@ -13,7 +14,7 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading: true })
     const res = await axios.get("https://api.github.com/users")
-    this.setState({ users: res.data, loading: true })
+    this.setState({ users: res.data, loading: false })
   }
 
   render() {
