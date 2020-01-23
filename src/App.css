@@ -40,6 +40,14 @@ img {
   width: 100%;
 }
 
+.rounded {
+  border-radius: 50px!important;
+}
+
+.smallRounded {
+  border-radius: 10px!important;
+}
+
 /* Utilities */
 .container {
   max-width: 1100px;

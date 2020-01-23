@@ -7,8 +7,9 @@ const Loading = () => {
     <img
       src={loadingGif}
       alt='Loading...'
-      style={{ width: "60px", margin: "auto", display: "block" }}
+      style={{ width: "80px", margin: "auto", display: "block", marginTop: "50px", marginBottom: "20px"}}
     />
+    <p style={{margin: "auto", display: "block", textAlign: "center", color: "#00aef0", fontWeight: "bold" }}>Loading...</p>
   </Fragment>)
 }
 
