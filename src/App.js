@@ -5,12 +5,14 @@ import "./App.css"
 import NavBar from "./components/layout/NavBar"
 import Users from "./components/users/Users"
 import Search from "./components/users/Search"
+import Alert from "./components/layout/Alert"
 import axios from "axios"
 
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   }
 
   // Grabs first 30 users
@@ -31,16 +33,32 @@ class App extends Component {
     this.setState({ users: res.data.items, loading: false })
   }
 
+  // Set Alert
+  setAlert = (msg, type) => {
+    this.setState({alert: {msg, type}})
+
+    setTimeout(() => this.setState({alert: null}), 4000)
+  }
+
   // Clear Users
   clearUsers = () => this.setState({ users: [], loading: false })
 
   render() {
+
+    const {users, loading} = this.state
+
     return (
       <div className='App'>
         <NavBar />
         <div className='container'>
-          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={this.state.users.length > 0 ? true : false }/>
-          <Users loading={this.state.loading} users={this.state.users} />
+        <Alert alert={this.state.alert} />
+          <Search 
+          searchUsers={this.searchUsers} 
+          clearUsers={this.clearUsers} 
+          showClear={users.length > 0 ? true : false }
+          setAlert={this.setAlert}
+          />
+          <Users loading={loading} users={users} />
         </div>
       </div>
     )
