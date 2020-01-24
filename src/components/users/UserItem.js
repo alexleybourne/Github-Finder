@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from 'prop-types'
 
 const UserItem = ({user: {login, avatar_url, html_url}}) => {
-  
+    
     return (
-      <div className='card text-center smallRounded'>
+      <div className='card text-center smallRounded flip-in-hor-bottom' >
         <img
           src={avatar_url}
           alt='User Icon'
