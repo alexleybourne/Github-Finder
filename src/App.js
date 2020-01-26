@@ -1,4 +1,6 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
+
+import { BrowserRouter as Router, Switch, Route} from  'react-router-dom'
 
 import "./App.css"
 
@@ -48,19 +50,28 @@ class App extends Component {
     const {users, loading} = this.state
 
     return (
+      <Router>
       <div className='App'>
         <NavBar />
         <div className='container'>
         <Alert alert={this.state.alert} />
-          <Search 
-          searchUsers={this.searchUsers} 
-          clearUsers={this.clearUsers} 
-          showClear={users.length > 0 ? true : false }
-          setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
+        <Switch>
+          <Route exact path="/" render={ props => 
+            <Fragment>
+              <Search 
+              searchUsers={this.searchUsers} 
+              clearUsers={this.clearUsers} 
+              showClear={users.length > 0 ? true : false }
+              setAlert={this.setAlert}
+              />
+              <Users loading={loading} users={users} />
+            </Fragment>
+          } />
+        </Switch>
+          
         </div>
       </div>
+      </Router>
     )
   }
 }
