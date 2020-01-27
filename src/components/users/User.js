@@ -16,7 +16,6 @@ export class User extends Component {
 
         return (
             <div>
-                <p>Why wont this work :(</p>
                 {name}
             </div>
         )
